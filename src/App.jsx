@@ -14,15 +14,18 @@ function App() {
     setCartIsShown(false);
   }
 
+  console.log(cartIsShown);
+
   return (
-    <CartProvider>
-      <Header />
-      {cartIsShown && <Cart onShowCart={showCartHandler} />}
-      <Header />
-      <main>
-        <Meals />
-      </main>
-    </CartProvider>
+    <>
+      <CartProvider>
+        <Header onShowCart={showCartHandler} />
+        {cartIsShown && <Cart onClose={hideCartHandler} />}
+        <main>
+          <Meals />
+        </main>
+      </CartProvider>
+    </>
   );
 }
 
